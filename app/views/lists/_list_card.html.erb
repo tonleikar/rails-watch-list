@@ -1,0 +1,18 @@
+<div class="card mb-3 rounded" style="max-height: 540px;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="https://image.tmdb.org/t/p/original/<%= bookmark.movie.poster_url%>" alt="<%= bookmark.movie.title %> poster" class="img-fluid rounded-start">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h2 class="card-title">
+              <%= bookmark.movie.title.truncate(20) %>
+            </h2>
+            <%= (bookmark.movie.rating).to_f / 10 %> ⭐️
+            <p class="card-text"><small class="text-body-secondary"><%= bookmark.movie.overview.truncate(100)%></small></p>
+            <p class="card-text"><%= bookmark.comment %></p>
+            <%= link_to "delete", bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+          </div>
+        </div>
+      </div>
+    </div>

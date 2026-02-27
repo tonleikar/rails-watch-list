@@ -1,0 +1,11 @@
+<h1><%= @list.name %></h1>
+
+<div class="card-deck">
+  <% @list.bookmarks.each do |bookmark| %>
+    <%= render "list_card", bookmark: bookmark %>
+  <% end %>
+</div>
+
+<%= link_to "back", lists_path %>
+<%= link_to "Add film", new_list_bookmark_path(@list) %>
+<%= link_to "Delete list", list_path(@list), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
